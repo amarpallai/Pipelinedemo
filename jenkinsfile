@@ -12,10 +12,20 @@ pipeline {
                 echo 'Testing'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deployed'
-            }
+        stage('Deploy in parallel') {
+            parallel{
+                stage('Prod'){
+                    step{
+                        echo 'Prod Deploy'
+                        }
+                }
+                stage('dev'){
+                    step{
+                        echo 'Devolopment'
+                        }
+                }
+             }
+        
         }
     }
 }
