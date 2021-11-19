@@ -15,12 +15,12 @@ pipeline {
         stage('Deploy in parallel') {
             parallel{
                 stage('Prod'){
-                    step{
+                    steps{
                         echo 'Prod Deploy'
                         }
                 }
                 stage('dev'){
-                    step{
+                    steps{
                         echo 'Devolopment'
                         }
                 }
